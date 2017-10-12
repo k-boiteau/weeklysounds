@@ -31,3 +31,15 @@ page "/playlists.html", locals: { playlists: playlists }
 playlists.each do |playlist|
   proxy "/playlists/#{playlist.slugs.first}.html", "/playlists/show.html", locals: { playlist: playlist }, ignore: true
 end
+
+# Helpers
+helpers do
+  # View helpers
+  def truncate(string, number)
+    if string.size > number
+      "#{string.chars.first(number).join}..."
+    else
+      string
+    end
+  end
+end

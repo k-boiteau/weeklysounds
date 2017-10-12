@@ -6,12 +6,18 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Use the title from a page's frontmatter if it has one -->
-    <title><%= current_page.data.title || yield_content(:title) %></title>
+    <title> Weekly Sounds | <%= current_page.data.title || yield_content(:title) %></title>
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "application" %>
     <%= favicon_tag 'images/favicon.png' %>
   </head>
   <body>
-    <%= yield %>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,12 +1,15 @@
 ---
-title: Playlists
+title: Toutes nos playlists
 ---
+<h1>Retrouver toutes nos playlistes passées</h1>
 
-<p>playlists</p>
-<ul>
+<div class="playlist-cards">
   <% playlists.each do |playlist| %>
-  <li>
-    <%= link_to playlist.fragments['title'].blocks.first.text, "/playlists/#{playlist.slugs.first}.html" %>
-  </li>
-<% end %>
-</ul>
+    <div class="playlist-card">
+      <%= image_tag playlist.fragments['image'].url %>
+      <p class="date">12/10/2017</p>
+      <h2><%= playlist.fragments['title'].blocks.first.text %></h2>
+      <p><%= truncate(playlist.fragments['description'].blocks.first.text, 100) %></p>
+    </div>
+  <% end %>
+</div>

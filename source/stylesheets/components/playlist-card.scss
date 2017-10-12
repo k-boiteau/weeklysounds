@@ -1,0 +1,31 @@
+.playlist-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+.playlist-card {
+  width: 100%;
+  margin: 20px;
+  max-width: 300px;
+  background: white;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+
+  & > img {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  & > .date {
+    font-size: 12px;
+    margin: 20px 0 0;
+  }
+
+  & > h2 {
+    margin: 20px 0;
+  }
+}
