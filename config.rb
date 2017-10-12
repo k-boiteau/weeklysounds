@@ -20,3 +20,14 @@ activate :deploy do |deploy|
   deploy.build_before = true
   deploy.deploy_method = :git
 end
+
+# Prismic configuration
+api = Prismic.api('https://weeklysounds.prismic.io/api')
+response = api.query(Prismic::Predicates.at("document.type", "playlist"))
+playlists = response.results
+
+# Routes
+page "/playlists.html", locals: { playlists: playlists }
+playlists.each do |playlist|
+  proxy "/playlists/#{playlist.slugs.first}.html", "/playlists/show.html", locals: { playlist: playlist }, ignore: true
+end
