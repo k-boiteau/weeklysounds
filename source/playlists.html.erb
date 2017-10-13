@@ -6,10 +6,14 @@ title: Toutes nos playlists
 <div class="playlist-cards">
   <% playlists.each do |playlist| %>
     <div class="playlist-card">
-      <%= image_tag playlist.fragments['image'].url %>
+      <div class="image-container">
+        <%= image_tag playlist.fragments['image'].url %>
+      </div>
       <p class="date">12/10/2017</p>
       <h2><%= playlist.fragments['title'].blocks.first.text %></h2>
-      <p><%= truncate(playlist.fragments['description'].blocks.first.text, 100) %></p>
+      <hr>
+      <p class="description"><%= truncate(playlist.fragments['description'].blocks.first.text, 100) %></p>
+      <a href="<%= "/playlists/#{playlist.slugs.first}.html" %>"></a>
     </div>
   <% end %>
 </div>
