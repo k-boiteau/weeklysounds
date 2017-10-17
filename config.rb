@@ -55,6 +55,8 @@ helpers do
       playlist.fragments['description'].blocks.first.text
     when "season"
       playlist.fragments['season'].value
+    when "embed"
+      playlist.fragments['embed'].value
     else
       return "Undefined variable"
     end
