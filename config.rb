@@ -42,4 +42,21 @@ helpers do
       string
     end
   end
+
+  def prismic(playlist, string)
+    case string
+    when "image"
+      return playlist.fragments['image'].url
+    when "date"
+      return playlist.fragments['date'].value.strftime("%d/%m/%Y")
+    when "title"
+      playlist.fragments['title'].blocks.first.text
+    when "description"
+      playlist.fragments['description'].blocks.first.text
+    when "season"
+      playlist.fragments['season'].value
+    else
+      return "Undefined variable"
+    end
+  end
 end

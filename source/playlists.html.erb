@@ -4,17 +4,16 @@ title: Toutes nos playlists
 <h1>Retrouver toutes nos playlistes passées</h1>
 
 <div class="playlist-cards">
-  <% playlists.sort_by {|playlist| playlist.fragments['date'].value} %>
   <% playlists.each do |playlist| %>
     <div class="playlist-card">
       <div class="image-container">
-        <%= image_tag playlist.fragments['image'].url %>
+        <%= image_tag prismic(playlist,'image') %>
       </div>
-      <p class="date"><%= playlist.fragments['date'].value.strftime("%d/%m/%Y") %></p>
-      <h2><%= playlist.fragments['title'].blocks.first.text %></h2>
+      <p class="date"><%= prismic(playlist,'date') %></p>
+      <h2><%= prismic(playlist,'title') %></h2>
       <hr>
-      <p class="description"><%= truncate(playlist.fragments['description'].blocks.first.text, 100) %></p>
-      <p class="season"><%= playlist.fragments['season'].value %></p>
+      <p class="description"><%= truncate(prismic(playlist,'description'), 100) %></p>
+      <p class="season"><%= prismic(playlist,'season') %></p>
       <a href="<%= "/playlists/#{playlist.slugs.first}.html" %>"></a>
     </div>
   <% end %>
