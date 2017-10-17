@@ -24,7 +24,7 @@ end
 # Prismic configuration
 api = Prismic.api('https://weeklysounds.prismic.io/api')
 response = api.query(Prismic::Predicates.at("document.type", "playlist"))
-playlists = response.results
+playlists = response.results.sort_by {|playlist| playlist.fragments['date'].value}.reverse
 
 # Routes
 page "/playlists.html", locals: { playlists: playlists }
