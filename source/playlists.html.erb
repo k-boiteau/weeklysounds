@@ -12,7 +12,7 @@ title: Toutes nos playlists
       <p class="date"><%= prismic(playlist,'date') %></p>
       <h2><%= prismic(playlist,'title') %></h2>
       <hr>
-      <p class="description"><%= truncate(prismic(playlist,'description'), 100) %></p>
+      <p class="description"><%= truncate(prismic(playlist,'description'), 170) %></p>
       <p class="season"><%= prismic(playlist,'season') %></p>
       <a href="<%= "/playlists/#{playlist.slugs.first}.html" %>"></a>
     </div>

@@ -43,7 +43,7 @@ helpers do
     end
   end
 
-  def prismic(playlist, string)
+  def prismic(playlist, string, option = false)
     case string
     when "image"
       return playlist.fragments['image'].url
@@ -52,7 +52,15 @@ helpers do
     when "title"
       playlist.fragments['title'].blocks.first.text
     when "description"
-      playlist.fragments['description'].blocks.first.text
+      paragraph = []
+      playlist.fragments['description'].blocks.each do |block|
+        paragraph << block.text
+      end
+      if option == true
+        return paragraph.join("<br>")
+      else
+        return paragraph.join(" ")
+      end
     when "season"
       playlist.fragments['season'].value
     when "embed"
