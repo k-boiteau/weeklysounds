@@ -24,7 +24,7 @@ end
 # Prismic configuration
 api = Prismic.api('https://weeklysounds.prismic.io/api')
 response = api.query(Prismic::Predicates.at("document.type", "playlist"))
-playlists = response.results
+playlists = response.results.sort_by {|playlist| playlist.fragments['date'].value}.reverse
 
 # Routes
 page "/playlists.html", locals: { playlists: playlists }
@@ -40,6 +40,25 @@ helpers do
       "#{string.chars.first(number).join}..."
     else
       string
+    end
+  end
+
+  def prismic(playlist, string)
+    case string
+    when "image"
+      return playlist.fragments['image'].url
+    when "date"
+      return playlist.fragments['date'].value.strftime("%d/%m/%Y")
+    when "title"
+      playlist.fragments['title'].blocks.first.text
+    when "description"
+      playlist.fragments['description'].blocks.first.text
+    when "season"
+      playlist.fragments['season'].value
+    when "embed"
+      playlist.fragments['embed'].value
+    else
+      return "Undefined variable"
     end
   end
 end
