@@ -1,4 +1,5 @@
 <% content_for(:title, playlist.fragments['title'].blocks.first.text) %>
 
 <h1><%= prismic(playlist,'title') %></h1>
+<p><%= prismic(playlist,'description', true) %></p>
 <%= prismic(playlist,'embed') %>
