@@ -1,12 +1,20 @@
-#home {
-  background-color: #D23333;
+.home {
+  background-size: cover;
   color: white;
   height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  text-align: center;
+  flex-wrap: flex;
+  h1 {
+    font-size: 50px;
+    font-weight: bold;
+    text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  }
   p {
+    font-size: 25px;
+    font-weight: lighter;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 50px;
     margin-top: 1.5em;
   }
   a {
@@ -15,3 +23,9 @@
     font-size: 16px;
   }
 }
+
+#contact-form {
+
+}
+
+
