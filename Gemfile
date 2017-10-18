@@ -9,6 +9,4 @@ gem 'prismic.io', require: 'prismic'
 
 # Assets
 gem 'font-awesome-middleman'
-gem 'bootstrap-sass'
-gem 'jquery-middleman'
 
