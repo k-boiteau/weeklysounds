@@ -21,6 +21,7 @@
     overflow: hidden;
     display: flex;
     justify-content: center;
+    background: $black;
 
     & > img {
       height: 100%;
@@ -51,6 +52,22 @@
     text-align: justify;
     & br {
       line-height: 3;
+    }
+  }
+}
+
+
+@media screen and (max-width: 1000px) {
+  #playlist {
+    flex-wrap: wrap;
+
+    & .column {
+      width:100%;
+
+      &.fixed {
+        position: initial;
+        height: initial;
+      }
     }
   }
 }
