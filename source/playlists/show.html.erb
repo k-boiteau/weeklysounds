@@ -1,5 +1,20 @@
 <% content_for(:title, playlist.fragments['title'].blocks.first.text) %>
-
-<h1><%= prismic(playlist,'title') %></h1>
-<p><%= prismic(playlist,'description', true) %></p>
-<iframe height="480" width="100%" src="<%= prismic(playlist,'embed') %>?color=FFB923" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<div id="playlist">
+  <div class="column fixed">
+    <div class="image-container">
+      <%= image_tag prismic(playlist,'image') %>
+    </div>
+    <div class="iframe-container">
+      <iframe height="265" width="100%" src="<%= prismic(playlist,'embed') %>?color=FFB923&hideTitle=1&hideCurator=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    </div>
+  </div>
+  <div class="column padded">
+    <h1><%= prismic(playlist,'title') %></h1>
+    <div class="details">
+      <%= prismic(playlist,'season') %> --- <%= prismic(playlist,'date') %>
+    </div>
+    <p class="description">
+      <%= prismic(playlist,'description', true) %>
+    </p>
+  </div>
+</div>
