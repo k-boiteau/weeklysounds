@@ -6,8 +6,8 @@
   z-index: 16;
   height: 74px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-
 
   & > .logo {
     color: $black;
@@ -17,6 +17,60 @@
       font-size: 2em;
       margin: 0;
       margin-left: 40px;
+    }
+  }
+
+  & > .menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+
+    & > li {
+      margin-left: 30px;
+      display: flex;
+      align-items: center;
+
+      & > a {
+        text-decoration: none;
+        color: $black;
+        margin-top: 1px;
+
+        &:after {
+          content: '';
+          display: block;
+          height: 2px;
+          width: 0;
+          background: $yellow;
+          transition: all .3s ease;
+        }
+
+        &:hover:after {
+          width: 100%;
+        }
+      }
+
+      &.cta {
+        height: 74px;
+
+        & > a {
+          background: $yellow;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          padding: 0 30px;
+          margin-top: 0;
+
+          &:after {
+            display: inherit;
+          }
+
+          &:hover {
+            background: rgba(255, 185, 35, 0.65);
+            transition: all .3s ease;
+          }
+        }
+      }
     }
   }
 }

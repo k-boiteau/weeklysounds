@@ -44,10 +44,11 @@
 
   & > hr {
     width: 30px;
-    border-width: 3px;
-    border-color: $black;
+    border-width: 2px;
+    border-color: $yellow;
+    border-style: solid;
     margin: auto;
-    margin-bottom: 15px;
+    margin-bottom: 18px;
   }
 
   & > .description {
