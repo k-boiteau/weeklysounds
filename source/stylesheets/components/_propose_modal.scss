@@ -1,0 +1,63 @@
+#propose-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+  background: rgba(32, 28, 28, 0.65);
+  justify-content: center;
+  align-items: center;
+
+  & > form {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    width: 50%;
+    min-width: 220px;
+    position: relative;
+
+    & > h4 {
+      font-size: 2em;
+      margin: 0 0 10px;
+    }
+
+    & > input[type="email"], & > textarea {
+      width: 100%;
+      border: 2px $grey solid;
+      padding: 5px;
+      margin-bottom: 10px;
+      transition: border-color .3s ease;
+      font-size: 1em;
+
+      &:focus, &:hover {
+        outline: none;
+        border-color: $yellow;
+      }
+    }
+
+    & > button {
+      font-size: 1em;
+      background: $yellow;
+      border: 0;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    & > #close-propose-modal {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.3em;
+
+      &:hover {
+        cursor: pointer;
+        color: $yellow;
+      }
+    }
+  }
+}
