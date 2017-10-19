@@ -24,6 +24,14 @@
     margin: 0;
     padding: 0;
     list-style: none;
+
+    & a {
+      text-decoration: none;
+      color: $black;
+    }
+  }
+
+  & > .desktop-menu {
     display: flex;
 
     & > li {
@@ -32,8 +40,6 @@
       align-items: center;
 
       & > a {
-        text-decoration: none;
-        color: $black;
         margin-top: 1px;
 
         &:after {
@@ -71,6 +77,93 @@
           }
         }
       }
+    }
+  }
+
+  & > .mobile-menu {
+    // display: none;
+    position: absolute;
+    overflow: hidden;
+    right: 0;
+    left: 0;
+    top: 100px;
+    height: 0;
+    z-index: 40;
+    background: $white;
+    transition: all .5s ease;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+
+    &.on {
+      height: calc(100vh - 100px);
+      opacity: 1;
+    }
+
+    & > li {
+      flex: auto;
+      display: flex;
+
+      & > a {
+        flex: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2em;
+        border-bottom: 2px solid $grey;
+
+        &:hover {
+          background: $yellow;
+          transition: all .3s ease;
+        }
+      }
+    }
+  }
+
+  & > .mobile-menu-toggle {
+    display: none;
+    padding: 10px;
+
+    & > div {
+      background: $black;
+      height: 4px;
+      margin-bottom: 6px;
+      width: 30px;
+      transition: all .3s ease;
+    }
+
+    & > div:last-child {
+      margin-bottom: 0;
+    }
+
+    &.on .two {
+      opacity: 0;
+    }
+
+    &.on .one {
+      transform: rotate(45deg) translate(7px, 7px);
+      background: $black;
+    }
+
+    &.on .three {
+      transform: rotate(-45deg) translate(7px, -7px);
+      background: $black;
+    }
+  }
+
+  & > .menu-toggle:hover {
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #navbar {
+    & > .desktop-menu {
+      display: none;
+    }
+
+    & > .mobile-menu-toggle {
+      display: block;
     }
   }
 }

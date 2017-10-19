@@ -8,11 +8,11 @@
     <!-- Use the title from a page's frontmatter if it has one -->
     <title> Weekly Sounds | <%= current_page.data.title || yield_content(:title) %></title>
     <%= stylesheet_link_tag "application" %>
-    <%= javascript_include_tag "application" %>
     <%= favicon_tag 'images/favicon.png' %>
   </head>
   <body>
     <%= partial "shared/navbar" %>
     <%= yield %>
+    <%= javascript_include_tag "application" %>
   </body>
 </html>
