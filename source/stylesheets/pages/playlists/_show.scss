@@ -1,14 +1,18 @@
 #playlist {
   display: flex;
   flex-direction: row-reverse;
+  // (navbar + breadcrumbs)
+  padding-top: 100px;
 
   & .column {
     width: 50%;
     position: relative;
     &.fixed {
-      height: 100vh;
+      // 100vh - (navbar + breadcrumbs)
+      height: calc(100vh - 100px);
       position: sticky;
-      top: 0;
+      // (navbar + breadcrumbs)
+      top: 100px;
       bottom: 0;
     }
     &.padded {
@@ -17,7 +21,8 @@
   }
 
   & .image-container {
-    height: 100vh;
+    // 100vh - (navbar + breadcrumbs)
+    height: calc(100vh - 100px);
     overflow: hidden;
     display: flex;
     justify-content: center;

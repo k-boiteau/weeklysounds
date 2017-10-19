@@ -1,9 +1,16 @@
 ---
 title: Toutes nos playlists
 ---
+<div id="breadcrumbs">
+  <a href="/">
+    <i class="fa fa-home" aria-hidden="true"></i>
+    Home
+  </a>
+  <span class="separator">/</span>
+  <span class="current">Playlists</span>
+</div>
 <div class="ws-container">
-  <h1>Retrouver toutes nos playlistes passées</h1>
-
+  <h2>Retrouver toutes nos playlistes passées</h2>
   <div class="playlist-cards">
     <% playlists.each do |playlist| %>
       <div class="playlist-card">
@@ -11,7 +18,7 @@ title: Toutes nos playlists
           <%= image_tag prismic(playlist,'image') %>
         </div>
         <p class="date"><%= prismic(playlist,'date') %></p>
-        <h2><%= prismic(playlist,'title') %></h2>
+        <h3><%= prismic(playlist,'title') %></h3>
         <hr>
         <p class="description"><%= truncate(prismic(playlist,'description'), 170) %></p>
         <p class="season"><%= prismic(playlist,'season') %></p>

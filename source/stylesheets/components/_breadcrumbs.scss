@@ -1,0 +1,33 @@
+#breadcrumbs {
+  background: $black;
+  color: $white;
+  font-size: .65em;
+  height: 26px;
+  padding-left: 40px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 74px;
+  right: 0;
+  left: 0;
+  z-index: 15;
+
+  & a {
+    color: $yellow;
+    text-decoration: none!important;
+
+    &:hover {
+      opacity: .8;
+    }
+  }
+
+  & .separator {
+    opacity: .5;
+    padding: 0 10px;
+  }
+
+  & .current {
+    opacity: .5;
+    font-style: italic;
+  }
+}

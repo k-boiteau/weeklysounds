@@ -1,4 +1,16 @@
 <% content_for(:title, playlist.fragments['title'].blocks.first.text) %>
+<div id="breadcrumbs">
+  <a href="/">
+    <i class="fa fa-home" aria-hidden="true"></i>
+    Home
+  </a>
+  <span class="separator">/</span>
+  <a href="/playlists.html">
+    <span>Playlists</span>
+  </a>
+  <span class="separator">/</span>
+  <span class="current"><%= prismic(playlist,'title') %></span>
+</div>
 <div id="playlist">
   <div class="column fixed">
     <div class="image-container">
@@ -9,7 +21,7 @@
     </div>
   </div>
   <div class="column padded">
-    <h1><%= prismic(playlist,'title') %></h1>
+    <h2><%= prismic(playlist,'title') %></h2>
     <div class="details">
       <%= prismic(playlist,'season') %> --- <%= prismic(playlist,'date') %>
     </div>

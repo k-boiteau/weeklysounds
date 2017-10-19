@@ -1,77 +1,169 @@
-/* Main navbar */
-.navbar-wagon {
-  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+#navbar {
   background: white;
-  transition: all 0.3s ease;
-  height: 70px;
-  padding: 0px 30px;
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 16;
+  height: 74px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-}
-
-/* Logo */
-.navbar-wagon-brand img {
-  height: 50px;
-}
-
-/* User Avatar */
-.navbar-wagon .avatar {
-  height: 35px;
-  width: 35px;
-  border-radius: 50%;
-}
-
-/* Right section */
-.navbar-wagon-right {
-  display: flex;
   align-items: center;
-  justify-content: space-between;
+
+  & > .logo {
+    color: $black;
+    text-decoration: none!important;
+
+    & > h1 {
+      font-size: 2em;
+      margin: 0;
+      margin-left: 40px;
+    }
+  }
+
+  & > .menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    & a {
+      text-decoration: none;
+      color: $black;
+    }
+  }
+
+  & > .desktop-menu {
+    display: flex;
+
+    & > li {
+      margin-left: 30px;
+      display: flex;
+      align-items: center;
+
+      & > a {
+        margin-top: 1px;
+
+        &:after {
+          content: '';
+          display: block;
+          height: 2px;
+          width: 0;
+          background: $yellow;
+          transition: all .3s ease;
+        }
+
+        &:hover:after {
+          width: 100%;
+        }
+      }
+
+      &.cta {
+        height: 74px;
+
+        & > a {
+          background: $yellow;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          padding: 0 30px;
+          margin-top: 0;
+
+          &:after {
+            display: inherit;
+          }
+
+          &:hover {
+            background: rgba(255, 185, 35, 0.65);
+            transition: all .3s ease;
+          }
+        }
+      }
+    }
+  }
+
+  & > .mobile-menu {
+    // display: none;
+    position: absolute;
+    overflow: hidden;
+    right: 0;
+    left: 0;
+    top: 100px;
+    height: 0;
+    z-index: 40;
+    background: $white;
+    transition: all .5s ease;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+
+    &.on {
+      height: calc(100vh - 100px);
+      opacity: 1;
+    }
+
+    & > li {
+      flex: auto;
+      display: flex;
+
+      & > a {
+        flex: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2em;
+        border-bottom: 2px solid $grey;
+
+        &:hover {
+          background: $yellow;
+          transition: all .3s ease;
+        }
+      }
+    }
+  }
+
+  & > .mobile-menu-toggle {
+    display: none;
+    padding: 10px;
+
+    & > div {
+      background: $black;
+      height: 4px;
+      margin-bottom: 6px;
+      width: 30px;
+      transition: all .3s ease;
+    }
+
+    & > div:last-child {
+      margin-bottom: 0;
+    }
+
+    &.on .two {
+      opacity: 0;
+    }
+
+    &.on .one {
+      transform: rotate(45deg) translate(7px, 7px);
+      background: $black;
+    }
+
+    &.on .three {
+      transform: rotate(-45deg) translate(7px, -7px);
+      background: $black;
+    }
+  }
+
+  & > .menu-toggle:hover {
+    cursor: pointer;
+  }
 }
 
-/* Basic navbar item */
-.navbar-wagon-item {
-  cursor: pointer;
-  padding: 0 20px;
-}
+@media screen and (max-width: 800px) {
+  #navbar {
+    & > .desktop-menu {
+      display: none;
+    }
 
-/* Navbar link */
-.navbar-wagon-link {
-  color: #616668;
-  font-size: 14px;
-}
-.navbar-wagon-link:hover {
-  color: #da552f;
-  text-decoration: none;
-}
-
-/* Dropdown menu */
-.navbar-wagon-dropdown-menu {
-  margin-top: 15px;
-  box-shadow: 1px 1px 4px #E6E6E6;
-  border-color: #E6E6E6;
-}
-.navbar-wagon-dropdown-menu li > a {
-  transition: color 0.3s ease;
-  font-weight: lighter !important;
-  color: #999999 !important;
-  font-size: 15px !important;
-  line-height: 22px !important;
-  padding: 10px 20px;
-}
-.navbar-wagon-dropdown-menu li > a:hover {
-  background: transparent !important;
-  color: black !important;
-}
-.navbar-wagon-dropdown-menu:before {
-  content: ' ';
-  height: 10px;
-  width: 10px;
-  position: absolute;
-  right: 10px;
-  top: -6px;
-  background-color: white;
-  transform: rotate(45deg);
-  border-left: 1px solid #E6E6E6;
-  border-top: 1px solid #E6E6E6;
+    & > .mobile-menu-toggle {
+      display: block;
+    }
+  }
 }
