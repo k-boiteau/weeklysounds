@@ -156,6 +156,12 @@
   }
 }
 
+@media (min-width: 800px) {
+  #navbar > .mobile-menu {
+    height: 0!important;
+  }
+}
+
 @media screen and (max-width: 800px) {
   #navbar {
     & > .desktop-menu {
