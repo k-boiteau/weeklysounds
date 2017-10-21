@@ -27,6 +27,7 @@ response = api.query(Prismic::Predicates.at("document.type", "playlist"))
 playlists = response.results.sort_by {|playlist| playlist.fragments['date'].value}.reverse
 
 # Routes
+page "/", :layout => "home"
 page "/playlists.html", locals: { playlists: playlists }
 playlists.each do |playlist|
   proxy "/playlists/#{playlist.slugs.first}.html", "/playlists/show.html", locals: { playlist: playlist }, ignore: true
