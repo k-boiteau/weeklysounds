@@ -1,6 +1,3 @@
-// set redirection
-document.getElementsByName('_next')[0].value = window.location.href
-
 // set comportement for modal
 const modalButtons = document.querySelectorAll("[data-target='propose-modal']");
 const closeButton = document.querySelector('#close-propose-modal');
@@ -18,23 +15,30 @@ closeModal = () => {
 modalButtons.forEach( button => button.addEventListener('click', openModal));
 closeButton.addEventListener('click', closeModal);
 
-// Send form using ajax
+
+// Send form using ajax & set alerts message
 const form = document.querySelector('#propose-form');
+const alert = document.querySelector('#alert')
+const message = document.querySelector('#message')
+const closeAlert = document.querySelector('#close-alert');
+
+closeAlertMessage = () => {
+  alert.classList.remove('alert-appears');
+}
+
+updateMsg = (cssClass, msg) => {
+  closeModal();
+  alert.classList.add(cssClass);
+  alert.classList.add('alert-appears');
+  message.innerText = msg;
+  setTimeout((() => { closeAlertMessage(); }), 10000);
+}
 
 sendWithAjax = (e) => {
   e.preventDefault();
 
-  const msgLoad = '<div class="alert alert-loading">Message en cours d\'envoi</div>';
-  const msgSuccess = '<div class="alert alert-success">Message reçu frère !</div>';
-  const msgError = '<div class="alert alert-error">Oups, une erreur est survenue :(</div>';
-
-  const updateMsg = (nodes, msg) => {
-    const messageStatus = document.querySelectorAll('.alert-loading');
-    for (i = 0; i < messageStatus.length; i++) {
-      statusMessages[i].style.display = 'none';
-    }
-    nodes.insertAdjacentHTML('beforeend', msg)
-  }
+  const msgSuccess = 'Message reçu frère !';
+  const msgError = 'Oups, une erreur est survenue :(';
 
   fetch('//formspree.io/germain.loret@gmail.com', {
       method: 'post',
@@ -44,16 +48,16 @@ sendWithAjax = (e) => {
       },
       body: new FormData(form)
     }).then(function(response) {
-      console.log(response)
       if (!response.ok) {
-        updateMsg(form, msgError);
+        updateMsg('error', msgError);
         return Promise.reject(new Error(response.statusText))
       }
-      updateMsg(form, msgSuccess);
+      updateMsg('success', msgSuccess);
       return Promise.resolve(response)
     }).catch(function(error) {
-      updateMsg(form, msgError);
+      updateMsg('error', msgError);
     });
 }
 
 form.addEventListener('submit', sendWithAjax)
+closeAlert.addEventListener('click', closeAlertMessage)
