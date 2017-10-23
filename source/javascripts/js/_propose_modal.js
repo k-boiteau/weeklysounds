@@ -40,7 +40,7 @@ sendWithAjax = (e) => {
   const msgSuccess = 'Message reçu frère !';
   const msgError = 'Oups, une erreur est survenue :(';
 
-  fetch('//formspree.io/germain.loret@gmail.com', {
+  fetch('//formspree.io/boiteau.kev@gmail.com', {
       method: 'post',
       mode: 'cors',
       headers: {
