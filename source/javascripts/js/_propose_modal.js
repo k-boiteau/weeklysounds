@@ -1,4 +1,5 @@
 // set comportement for modal
+
 const modalButtons = document.querySelectorAll("[data-target='propose-modal']");
 const closeButton = document.querySelector('#close-propose-modal');
 const modal = document.querySelector('#propose-modal');
@@ -17,14 +18,10 @@ closeButton.addEventListener('click', closeModal);
 
 
 // Send form using ajax & set alerts message
-const form = document.querySelector('#propose-form');
-const alert = document.querySelector('#alert')
-const message = document.querySelector('#message')
-const closeAlert = document.querySelector('#close-alert');
 
-closeAlertMessage = () => {
-  alert.classList.remove('alert-appears');
-}
+const form = document.querySelector('#propose-form');
+const message = document.querySelector('#message');
+const alert = document.querySelector('#alert');
 
 updateMsg = (cssClass, msg) => {
   closeModal();
@@ -59,5 +56,5 @@ sendWithAjax = (e) => {
     });
 }
 
-form.addEventListener('submit', sendWithAjax)
-closeAlert.addEventListener('click', closeAlertMessage)
+form.addEventListener('submit', sendWithAjax);
+

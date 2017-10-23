@@ -16,31 +16,31 @@
     <%= partial "shared/alert" %>
     <%= javascript_include_tag "application" %>
     <script>
-      const signUp = document.querySelector("#mc-embedded-subscribe-form");
-      const submitButton = document.querySelector("#mc-embedded-subscribe");
+      // const signUp = document.querySelector("#mc-embedded-subscribe-form");
+      // const submitButton = document.querySelector("#mc-embedded-subscribe");
 
-      register = () => {
-        const msgSuccess = 'Merci pour ton inscription. N\'oublie pas de valider ton adresse mail !' ;
-        const msgError = 'Oups, une erreur est survenue :(';
-        fetch(signUp.action + '&EMAIL=' + signUp[0].value + '&c=', {
-            method: signUp.method,
-            mode: 'no-cors',
-            headers: {
-              'Content-Type': 'application/json; charset=utf-8'
-            },
-          }).then(function() {
-            updateMsg('success', msgSuccess);
-          }).catch(function(error) {
-            updateMsg('error', msgError);
-          });
-      }
+      // register = () => {
+      //   const msgSuccess = 'Merci pour ton inscription. N\'oublie pas de valider ton adresse mail !' ;
+      //   const msgError = 'Oups, une erreur est survenue :(';
+      //   fetch(signUp.action + '&EMAIL=' + signUp[0].value + '&c=', {
+      //       method: signUp.method,
+      //       mode: 'no-cors',
+      //       headers: {
+      //         'Content-Type': 'application/json; charset=utf-8'
+      //       },
+      //     }).then(function() {
+      //       updateMsg('success', msgSuccess);
+      //     }).catch(function(error) {
+      //       updateMsg('error', msgError);
+      //     });
+      // }
 
-      subscribe = (e) => {
-        e.preventDefault();
-        register(signUp);
-      }
+      // subscribe = (e) => {
+      //   e.preventDefault();
+      //   register(signUp);
+      // }
 
-      submitButton.addEventListener('click', subscribe);
+      // submitButton.addEventListener('click', subscribe);
     </script>
   </body>
 </html>
