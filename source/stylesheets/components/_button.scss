@@ -1,15 +1,7 @@
 .btn {
-  color: white;
-  padding: 25px 35px;
-  border-radius: 4px;
-  font-weight: bold;
-  font-size: 20px;
-  background: #FFB923;
-  transition: background 0.3s ease;
-}
-.btn:hover {
-  opacity: 1;
-  background: #201C1C;
-  text-decoration: none;
-  color: #F7F7F7;
-}
+    font-size: 1em;
+    background: $yellow;
+    border: 0;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
