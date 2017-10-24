@@ -13,5 +13,8 @@ toggleMenu = () => {
   }
 }
 
-button.addEventListener('click', toggleMenu);
+if (button) {
+  button.addEventListener('click', toggleMenu);
+}
+
 
