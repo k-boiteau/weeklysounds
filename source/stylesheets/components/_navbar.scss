@@ -14,9 +14,15 @@
     text-decoration: none!important;
 
     & > h1 {
-      font-size: 2em;
       margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       margin-left: 40px;
+
+      & > img {
+        max-width: 250px;
+      }
     }
   }
 

@@ -19,9 +19,17 @@
       const signUp = document.querySelector("#mc-embedded-subscribe-form");
       const submitButton = document.querySelector("#mc-embedded-subscribe");
 
+      updateMsg = (cssClass, msg) => {
+        document.querySelector('#alert').classList.add(cssClass);
+        document.querySelector('#alert').classList.add('alert-appears');
+        document.querySelector('#message').innerText = msg;
+        setTimeout((() => { closeAlertMessage(); }), 10000);
+      }
+
       register = () => {
         const msgSuccess = 'Merci pour ton inscription. N\'oublie pas de valider ton adresse mail !' ;
         const msgError = 'Oups, une erreur est survenue :(';
+
         fetch(signUp.action + '&EMAIL=' + signUp[0].value + '&c=', {
             method: signUp.method,
             mode: 'no-cors',

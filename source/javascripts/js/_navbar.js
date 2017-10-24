@@ -1,3 +1,5 @@
+// Set Navbar behavior
+
 const button = document.querySelector('.mobile-menu-toggle');
 const menu = document.querySelector('.mobile-menu');
 
@@ -12,3 +14,4 @@ toggleMenu = () => {
 }
 
 button.addEventListener('click', toggleMenu);
+
