@@ -8,7 +8,6 @@
   overflow: scroll;
 
   & .home-title {
-    width: 100%;
     padding: 50px;
     margin-bottom: 100px;
 
@@ -17,11 +16,11 @@
 
       & > img {
       max-width: 300px;
+      width: 100%;
       }
     }
 
     & > h2 {
-      font-size: 25px;
       font-weight: lighter;
       color: $grey;
       margin: 0;
@@ -42,6 +41,7 @@
 
       & p {
         color: white;
+        line-height: 2;
       }
     }
 
@@ -56,23 +56,38 @@
         border: 10px white solid;
       }
 
-      & a {
-        color: white;
-        text-decoration: none;
-        height: 2px;
-        width: 0;
-        font-size: 0.8em;
+      & .links {
+        display: flex;
+        justify-content: space-between;
 
-
-        &:hover {
-          height: 2px;
-          width: 0;
-          color: $yellow;
+        & a {
+          color: white;
+          text-decoration: none;
+          font-size: 0.8em;
           transition: all .3s ease;
+
+          &:hover {
+            color: $yellow;
+          }
         }
       }
     }
   }
 }
 
+@media screen and (max-width: 800px) {
+  .home {
+    & .home-content {
+      display: block;
 
+      & .subscription, .apercu {
+        padding: 0 10% 50px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 340px) {
+  .home .home-title {
+    margin-bottom: 50px;
+  }
+}

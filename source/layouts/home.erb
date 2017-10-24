@@ -17,13 +17,15 @@
     <script>
       const signUp = document.querySelector("#mc-embedded-subscribe-form");
       const submitButton = document.querySelector("#mc-embedded-subscribe");
+      let close;
 
       updateMsg = (cssClass, msg) => {
+        clearTimeout(close);
         document.querySelector('#alert').classList = '';
         document.querySelector('#alert').classList.add(cssClass);
         document.querySelector('#alert').classList.add('alert-appears');
         document.querySelector('#message').innerText = msg;
-        setTimeout((() => { closeAlertMessage(); }), 10000);
+        close = setTimeout((() => { closeAlertMessage(); }), 10000);
       }
 
       register = (form) => {

@@ -2,11 +2,10 @@
   position: fixed;
   z-index: 100;
   bottom: 20px;
-  right: -300px;
+  right: -360px;
   color: white;
   max-width: 300px;
-  min-height: 70px;
-  padding: 15px;
+  padding: 30px;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -19,11 +18,11 @@
   }
 
   &.success {
-    background: #3ab23a;
+    background: #1aa21a;
   }
 
   &.error {
-    background: #db3c3c;
+    background: #cf3913;
   }
 
   & i#close-alert {

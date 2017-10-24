@@ -22,13 +22,16 @@ closeButton.addEventListener('click', closeModal);
 const form = document.querySelector('#propose-form');
 const message = document.querySelector('#message');
 const alert = document.querySelector('#alert');
+let close;
 
 updateMsg = (cssClass, msg) => {
   closeModal();
+  clearTimeout(close);
+  document.querySelector('#alert').classList = '';
   alert.classList.add(cssClass);
   alert.classList.add('alert-appears');
   message.innerText = msg;
-  setTimeout((() => { closeAlertMessage(); }), 10000);
+  close = setTimeout((() => { closeAlertMessage(); }), 10000);
 }
 
 sendWithAjax = (e) => {

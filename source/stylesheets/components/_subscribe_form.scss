@@ -2,16 +2,26 @@
   display: flex;
 
   & input#mce-EMAIL {
-    padding: 12px;
-    width: 200px;
+    padding: 20px;
+    width: 100%;
+    max-width: 200px;
     border: 0;
+    border-bottom: 4px solid $yellow;
+    font-size: 1em;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   & input#mc-embedded-subscribe {
     background: $yellow;
     border: 0;
-    padding: 12px;
-    width: 60px;
-    height: 37px;
+    padding: 22px;
+    font-size: 1em;
+
+    &:focus {
+      outline: none;
+    }
   }
 }
