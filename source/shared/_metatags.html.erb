@@ -1,0 +1,20 @@
+<% CURRENT_DOMMAIN = "http://localhost:4567" %>
+
+<title>Weekly Sounds | <%= current_page.data.title || yield_content(:title) %></title>
+<meta name="description" content="<%= current_page.data.description || yield_content(:description) %>">
+
+<!-- Facebook Open Graph data -->
+<meta property="og:title" content="Weekly Sounds | <%= current_page.data.title || yield_content(:title) %>" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="<%= CURRENT_DOMMAIN + current_page.url %>" />
+<meta property="og:image" content="<%= yield_content(:image) %>" />
+<meta property="og:description" content="<%= current_page.data.description || yield_content(:description) %>" />
+<meta property="og:site_name" content="WeeklySounds.com" />
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary_large_image">
+<!-- <meta name="twitter:site" content=""> -->
+<meta name="twitter:title" content="Weekly Sounds | <%= current_page.data.title || yield_content(:title) %>">
+<meta name="twitter:description" content="<%= current_page.data.description || yield_content(:description) %>">
+<!-- <meta name="twitter:creator" content=""> -->
+<meta name="twitter:image:src" content="<%= yield_content(:image) %>">

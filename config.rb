@@ -58,9 +58,9 @@ helpers do
         paragraph << block.text
       end
       if option == true
-        return paragraph.join("<br>")
+        return paragraph.join("<br>").gsub(/\u00a0/, '')
       else
-        return paragraph.join(" ")
+        return paragraph.join(" ").gsub(/\u00a0/, '')
       end
     when "season"
       playlist.fragments['season'].value
