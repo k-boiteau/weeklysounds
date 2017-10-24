@@ -50,6 +50,7 @@ sendWithAjax = (e) => {
         return Promise.reject(new Error(response.statusText))
       }
       updateMsg('success', msgSuccess);
+      form.reset();
       return Promise.resolve(response)
     }).catch(function(error) {
       updateMsg('error', msgError);
