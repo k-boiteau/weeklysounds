@@ -4,4 +4,17 @@
 
 .padded-up {
   padding: 40px 0 0;
+  font-weight: 500;
+}
+
+.basic-title {
+  font-family: $body-font;
+}
+
+.title-separator:after {
+  content: '';
+  display: inline-block;
+  height: 2px;
+  width: 100%;
+  background: $yellow;
 }
