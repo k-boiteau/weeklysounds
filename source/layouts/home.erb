@@ -20,18 +20,19 @@
       const submitButton = document.querySelector("#mc-embedded-subscribe");
 
       updateMsg = (cssClass, msg) => {
+        document.querySelector('#alert').classList = '';
         document.querySelector('#alert').classList.add(cssClass);
         document.querySelector('#alert').classList.add('alert-appears');
         document.querySelector('#message').innerText = msg;
         setTimeout((() => { closeAlertMessage(); }), 10000);
       }
 
-      register = () => {
+      register = (form) => {
         const msgSuccess = 'Merci pour ton inscription. N\'oublie pas de valider ton adresse mail !' ;
         const msgError = 'Oups, une erreur est survenue :(';
 
-        fetch(signUp.action + '&EMAIL=' + signUp[0].value + '&c=', {
-            method: signUp.method,
+        fetch(form.action + '&EMAIL=' + form[0].value + '&c=', {
+            method: form.method,
             mode: 'no-cors',
             headers: {
               'Content-Type': 'application/json; charset=utf-8'
@@ -43,9 +44,20 @@
           });
       }
 
+      validateEmail = (email) => {
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email)
+      }
+
       subscribe = (e) => {
         e.preventDefault();
-        register(signUp);
+        const email = signUp[0].value;
+        if (validateEmail(email)) {
+          register(signUp);
+        } else {
+          const invalidEmail = "Ton mail ne semble pas valide..."
+          updateMsg('error', invalidEmail);
+        }
       }
 
       submitButton.addEventListener('click', subscribe);
