@@ -2,21 +2,20 @@
 title: Le Wagon - Middleman
 ---
 
-<div class="home" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= prismic(last_playlist, 'image') %>);" class="padded">
+<div class="home" style="background-image: linear-gradient(-225deg, rgba(32,28,28,0.3) 0%, rgba(32,28,28,0.6) 50%), url(<%= prismic(last_playlist, 'image') %>);" class="padded">
   <div class="home-title">
     <h1>Weekly sounds</h1>
+    <h2 class="text-center padded-up">S'ouvrir et partager en prenant le temps d'ecouter</h2>
   </div>
-  <div class="home-elements">
-    <div id="introduction">
-      <h2 class="text-center">S'ouvrir et partager en prenant le temps d'ecouter</h2>
-    </div>
-    <div class="iframe-container">
+  <div class="home-content">
+      <div class="subscription">
+        <p>pour des curiosités sonores chaque semaine : rejoins le crew</p>
+        <%= partial "shared/mailchimp_form" %>
+      </div>
+    <div class="apercu">
+      <p>A l'écoute cette semaine:</p>
       <iframe height="265" width="100%" src="<%= prismic(last_playlist,'embed') %>?color=FFB923&hideTitle=1&hideCurator=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     </div>
-    <div class="subscription">
-      <%= partial "shared/mailchimp_form" %>
-    </div>
-
   </div>
 </div>
 

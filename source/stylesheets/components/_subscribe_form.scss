@@ -1,0 +1,16 @@
+.subscribe-form {
+  display: flex;
+
+  & input#mce-EMAIL {
+    padding: 12px;
+    width: 200px;
+    border: 0;
+  }
+
+  & input#mc-embedded-subscribe {
+    background: $yellow;
+    border: 0;
+    padding: 12px;
+    width: 60px;
+  }
+}
