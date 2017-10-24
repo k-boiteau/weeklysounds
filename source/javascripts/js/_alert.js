@@ -1,8 +1,8 @@
 // Set alert popup behavior
 
-const closeAlert = document.querySelector('#close-alert');
+var closeAlert = document.querySelector('#close-alert');
 
-closeAlertMessage = () => {
+function closeAlertMessage() {
   document.querySelector('#alert').classList.remove('alert-appears');
 }
 

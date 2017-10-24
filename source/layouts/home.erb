@@ -15,22 +15,22 @@
     <%= partial "shared/alert" %>
     <%= javascript_include_tag "application" %>
     <script>
-      const signUp = document.querySelector("#mc-embedded-subscribe-form");
-      const submitButton = document.querySelector("#mc-embedded-subscribe");
-      let close;
+      var signUp = document.querySelector("#mc-embedded-subscribe-form");
+      var submitButton = document.querySelector("#mc-embedded-subscribe");
+      var close;
 
-      updateMsg = (cssClass, msg) => {
+      function updateMsg(cssClass, msg) {
         clearTimeout(close);
         document.querySelector('#alert').classList = '';
         document.querySelector('#alert').classList.add(cssClass);
         document.querySelector('#alert').classList.add('alert-appears');
         document.querySelector('#message').innerText = msg;
-        close = setTimeout((() => { closeAlertMessage(); }), 10000);
+        close = setTimeout((function() { closeAlertMessage(); }), 10000);
       }
 
-      register = (form) => {
-        const msgSuccess = 'Merci pour ton inscription. N\'oublie pas de valider ton adresse mail !' ;
-        const msgError = 'Oups, une erreur est survenue :(';
+      function register(form) {
+        var msgSuccess = 'Merci pour ton inscription. N\'oublie pas de valider ton adresse mail !' ;
+        var msgError = 'Oups, une erreur est survenue :(';
 
         fetch(form.action + '&EMAIL=' + form[0].value + '&c=', {
             method: form.method,
@@ -45,18 +45,18 @@
           });
       }
 
-      validateEmail = (email) => {
-        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      function validateEmail(email) {
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(email)
       }
 
-      subscribe = (e) => {
+      function subscribe(e) {
         e.preventDefault();
-        const email = signUp[0].value;
+        var email = signUp[0].value;
         if (validateEmail(email)) {
           register(signUp);
         } else {
-          const invalidEmail = "Ton mail ne semble pas valide..."
+          var invalidEmail = "Ton mail ne semble pas valide..."
           updateMsg('error', invalidEmail);
         }
       }

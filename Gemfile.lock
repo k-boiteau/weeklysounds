@@ -21,6 +21,7 @@ GEM
       execjs
     backports (3.10.0)
     byebug (9.1.0)
+    closure-compiler (1.1.10)
     coderay (1.1.2)
     coffee-script (2.4.1)
       coffee-script-source
@@ -88,7 +89,7 @@ GEM
       servolux
       tilt (~> 2.0)
       uglifier (~> 3.0)
-    middleman-sprockets (4.1.1)
+    middleman-sprockets (4.0.0)
       middleman-core (~> 4.0)
       sprockets (>= 3.0)
     minitest (5.10.3)
@@ -134,6 +135,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  closure-compiler (= 1.1.10)
   font-awesome-middleman
   middleman (~> 4.2)
   middleman-autoprefixer (~> 2.7)

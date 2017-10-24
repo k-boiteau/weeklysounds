@@ -1,9 +1,9 @@
 // Set Navbar behavior
 
-const button = document.querySelector('.mobile-menu-toggle');
-const menu = document.querySelector('.mobile-menu');
+var button = document.querySelector('.mobile-menu-toggle');
+var menu = document.querySelector('.mobile-menu');
 
-toggleMenu = () => {
+function toggleMenu() {
   if (menu.classList.contains('on')) {
     menu.classList.remove('on');
     button.classList.remove('on');
