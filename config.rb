@@ -9,7 +9,6 @@ page '/*.json', layout: false
 page '/*.txt', layout: false
 
 configure :build do
-  config[:host] = "http://www.weeklysounds.com"
   activate :minify_css
   activate :minify_javascript, compressor: Closure::Compiler.new
   activate :asset_hash
@@ -33,6 +32,7 @@ page "/playlists.html", locals: { playlists: playlists }
 playlists.each do |playlist|
   proxy "/playlists/#{playlist.slugs.first}.html", "/playlists/show.html", locals: { playlist: playlist }, ignore: true
 end
+page '/404.html', directory_index: false
 
 # Helpers
 helpers do
