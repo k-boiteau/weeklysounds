@@ -9,6 +9,7 @@ page '/*.json', layout: false
 page '/*.txt', layout: false
 
 configure :build do
+  config[:host] = "http://www.weeklysounds.com"
   activate :minify_css
   activate :minify_javascript, compressor: Closure::Compiler.new
   activate :asset_hash
