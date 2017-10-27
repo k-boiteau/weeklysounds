@@ -32,7 +32,8 @@ page "/playlists.html", locals: { playlists: playlists }
 playlists.each do |playlist|
   proxy "/playlists/#{playlist.slugs.first}.html", "/playlists/show.html", locals: { playlist: playlist }, ignore: true
 end
-page '/404.html', directory_index: false
+page "/404.html", directory_index: false
+page "/dashboard-mailing.html", :layout => "admin"
 
 # Helpers
 helpers do

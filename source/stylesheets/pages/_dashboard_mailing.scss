@@ -1,0 +1,7 @@
+#mail-creator {
+  display: flex;
+
+  & > div {
+    width: 50%;
+  }
+}

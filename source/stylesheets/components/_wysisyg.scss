@@ -1,0 +1,38 @@
+.wysiwyg {
+  background: $white;
+  border: 1px grey solid;
+  border-radius: 5px;
+  margin: 15px;
+  overflow: hidden;
+
+  & .controls {
+    background: $grey;
+    display: flex;
+
+    & > a {
+      color: $black;
+      text-decoration: none;
+      border: 1px grey solid;
+      border-radius: 2px;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      margin: 10px;
+
+      &:hover {
+        opacity: .6;
+      }
+    }
+  }
+
+  & .content {
+    min-height: 300px;
+    padding: 10px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
