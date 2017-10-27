@@ -7,18 +7,73 @@
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="/images/favicon.png" rel="icon" type="image/png">
     <style>
+      @import url('https://fonts.googleapis.com/css?family=Rubik:400,500');
+
       #error-page {
         background: #201C1C;
+        background-image: linear-gradient(-225deg, #201c1c 0%, rgba(32, 28, 28, 0.8) 50%), url(/images/404.jpg);
+        background-size: cover;
+        background-position: center;
         position: absolute;
         top: 0;
         bottom: 0;
         right: 0;
         left: 0;
         overflow: hidden;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column; }
+
+      div#logo {
+        max-width: 250px;
+        margin-bottom: 10vh; }
+
+      div#error-msg {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        padding: 0 40px;
+        max-width: 400px; }
+
+      div#error-msg > img {
+        width: 30%; }
+
+      p#msg {
+        color: white;
+        font-family: "Rubik", "Helvetica", "sans-serif";
+        font-size: 1.2em;
+        text-align: center; }
+
+      a#go-home {
+        color: #201c1c;
+        text-decoration: none;
+        background: #FFB923;
+        font-family: "Rubik", "Helvetica", "sans-serif";
+        padding: 20px 30px;
+        border: 3px solid #ffb923;
+        -webkit-transition: all .3s ease;
+        transition: all .3s ease;
+        margin-top: 10vh; }
+
+      a#go-home:hover, a#go-home:focus {
+        border-color: white;
+        outline: none; }
 
       @-webkit-keyframes rotating /* Safari and Chrome */ {
         from {
@@ -59,7 +114,16 @@
   </head>
   <body>
     <div id="error-page">
-      <img src="/images/404.png" alt="404" class="rotating">
+      <div id="logo">
+        <img src="/images/logo-ws-white.png" alt="WeeklySounds | Une nouvelle playlist chaque semaine" style="width: 100%;">
+      </div>
+      <div id="error-msg">
+      <img src="/images/4-wh.png" alt="404">
+      <img src="/images/vinyl-wh.png" alt="404" style="width: 35%; margin: 2%;" class="rotating">
+      <img src="/images/4-wh.png" alt="404">
+      </div>
+      <p id="msg">La page que tu recherches n'est plus disponible...</p>
+      <a id="go-home" href="http://www.weeklysounds.com">Retourner sur la home</a>
     </div>
   </body>
 </html>
