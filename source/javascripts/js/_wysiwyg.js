@@ -15,14 +15,14 @@ function addStyle(e) {
   if (this.dataset.role === "bold") {
     newText = document.createElement("strong");
   }
-  if (this.dataset.role === "title") {
-    newText = document.createElement("h1");
-  }
   if (this.dataset.role === "list") {
     newText = document.createElement("li");
   }
-  if (this.dataset.role === "canceled") {
-    newText = document.createElement("span");
+  if (this.dataset.role === "title") {
+    newText = document.createElement("h1");
+    newText.appendChild(document.createTextNode(selection.toString()));
+    selection.baseNode.parentElement.parentElement.replaceChild(newText, selection.baseNode.parentElement);
+    return;
   }
   newText.appendChild(document.createTextNode(selection.toString()));
   var range = selection.getRangeAt(0);
@@ -32,4 +32,13 @@ function addStyle(e) {
 
 if (controls !== []) {
   controls.forEach( function(control) {control.addEventListener('click', addStyle)});
+}
+
+if (text) {
+  text.addEventListener('keypress', function(e) {
+    if (e.keyCode === 13) {
+      document.execCommand('formatBlock', false, 'p');
+      return false;
+    }
+  });
 }
