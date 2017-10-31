@@ -63,6 +63,11 @@
       }
 
       submitButton.addEventListener('click', subscribe);
+
+      // Registration alert
+      if (window.location.search === "?new_registration") {
+        updateMsg('success', 'Ton inscription a bien été validée');
+      }
     </script>
   </body>
 </html>
