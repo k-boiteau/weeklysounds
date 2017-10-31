@@ -13,8 +13,12 @@ function closeModal() {
   modal.style = "display: none"
 }
 
-modalButtons.forEach( function(button) {button.addEventListener('click', openModal)});
-closeButton.addEventListener('click', closeModal);
+if (modalButtons !== []) {
+  modalButtons.forEach( function(button) {button.addEventListener('click', openModal)});
+}
+if (closeButton) {
+  closeButton.addEventListener('click', closeModal);
+}
 
 
 // Send form using ajax & set alerts message
@@ -60,5 +64,7 @@ function sendWithAjax(e) {
     });
 }
 
-form.addEventListener('submit', sendWithAjax);
+if (form) {
+  form.addEventListener('submit', sendWithAjax);
+}
 
