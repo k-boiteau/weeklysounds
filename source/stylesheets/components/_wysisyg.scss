@@ -10,7 +10,7 @@
     justify-content: flex-start;
     align-items: center;
     height: 50px;
-    padding-left: 20px;
+    padding: 0 20px;
 
     & > a {
       color: $black;
@@ -26,6 +26,23 @@
 
       &:hover {
         opacity: .6;
+      }
+    }
+
+    & > input {
+      color: $black;
+      border: 1px grey solid;
+      border-radius: 2px;
+      height: 18px;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      margin: 2px;
+      max-width: 300px;
+      width: 100%;
+
+      &:focus {
+        outline: none;
       }
     }
   }

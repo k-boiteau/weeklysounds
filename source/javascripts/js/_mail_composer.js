@@ -2,6 +2,7 @@ var newContent = document.querySelector('.wysiwyg-content');
 var newMails = document.querySelectorAll('.email-content');
 var menuLinks = document.querySelectorAll('#preview > .menu > a');
 var previews = document.querySelectorAll('#preview > .content > div');
+var image = document.querySelector('#img-link');
 
 function setNewMail() {
   var mailFormated = [];
