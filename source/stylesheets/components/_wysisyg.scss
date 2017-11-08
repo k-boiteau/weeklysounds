@@ -1,6 +1,6 @@
 .wysiwyg {
   background: $white;
-  overflow: hidden;
+  overflow: scroll;
   width: 100%;
   height: 100vh;
 
@@ -11,6 +11,8 @@
     align-items: center;
     height: 50px;
     padding: 0 20px;
+    top: 0;
+    position: sticky;
 
     & > a {
       color: $black;
