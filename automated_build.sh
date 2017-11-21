@@ -9,7 +9,7 @@ git clone https://github.com/grmnlrt/weeklysounds.git build
 
 # Trigger Middleman rebuild
 cd $CWD
-bundle exec middleman --rebuild
+middleman build
 
 # Push newly built repository
 cp -r $CWD/build/* /tmp/build
