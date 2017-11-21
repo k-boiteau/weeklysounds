@@ -18,7 +18,7 @@ function setNewMail() {
       if (element.previousSibling && element.previousSibling.nodeName === "H1") {
         mailFormated.push('<p style="text-align:justify;border-top:2px solid #ffb923;margin-top:2px;padding-top:20px;color:#201c1c">' + element.innerHTML + '</p>');
       } else {
-        mailFormated.push('<p>' + element.innerHTML + '</p>');
+        mailFormated.push('<p style="text-align:justify;">' + element.innerHTML + '</p>');
       }
     }
   });
