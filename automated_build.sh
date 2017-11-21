@@ -16,6 +16,9 @@ cp -r $CWD/build/* /tmp/build
 
 cd /tmp/build
 
+echo -e 'test'
+git remote -v
+
 git config --global user.email "germain.loret@gmail.com"
 git config --global user.name "germainloret"
 
