@@ -3,13 +3,13 @@ CWD=`pwd`
 
 # Clone Pages repository
 cd /tmp
-git clone weeklysounds build
+git clone https://github.com/grmnlrt/weeklysounds.git build
 
 # cd build && git checkout -b YOUR_BRANCH origin/YOUR_BRANCH # If not using master
 
 # Trigger Middleman rebuild
 cd $CWD
-bundle exec middleman contentful --rebuild
+bundle exec middleman --rebuild
 
 # Push newly built repository
 cp -r $CWD/build/* /tmp/build
