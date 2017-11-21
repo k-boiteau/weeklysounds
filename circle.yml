@@ -1,10 +1,11 @@
-machine:
-  ruby:
-    version: 2.3.1
-dependencies:
-  pre:
-    - gem install bundler
-checkout:
-  post:
-    - bundle install
-    - bash automated_build.sh
+compile:
+  override:
+    - bundle exec middleman build
+
+deployment:
+  build:
+    branch: master
+    commands:
+      - git config user.email $GIT_USER_EMAIL
+      - git config user.name $GIT_USER_NAME
+      - bundle exec middleman deploy
