@@ -21,4 +21,4 @@ git config --global user.name "germainloret"
 
 git add .
 git commit -m "Automated Rebuild"
-git push -f origin gh-pages
+git push -f origin origin/gh-pages
